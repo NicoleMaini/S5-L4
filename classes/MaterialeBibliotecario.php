@@ -18,13 +18,15 @@ abstract class MaterialeBibliotecario implements Prestito
     public function presta()
     {
         if (self::$contatoreMateriali > 0) {
-            echo self::$contatoreMateriali--;
+            self::$contatoreMateriali--;
+            static::$contatoreMateriali--;
         } else {
-            echo self::$contatoreMateriali;
+            self::$contatoreMateriali;
         }
     }
     public function restituisci()
     {
-        echo self::$contatoreMateriali++;
+        self::$contatoreMateriali++;
+        static::$contatoreMateriali++;
     }
 }

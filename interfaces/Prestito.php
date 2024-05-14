@@ -2,6 +2,6 @@
 
 interface Prestito
 {
-    function presta();
-    function restituisci();
+    public function presta();
+    public function restituisci();
 }

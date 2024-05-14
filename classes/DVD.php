@@ -4,22 +4,19 @@ include_once __DIR__ . '/MaterialeBibliotecario.php';
 
 class DVD extends MaterialeBibliotecario
 {
+    // dobbiammo essere in grado di maneggiarlo, ma dobiamo impedire agli altri di cambiarla inavvertitamente
+    static public $contatoreMateriali = 0;
     public $regista;
 
     function __construct($titolo, $annoPubblicazione, $regista)
     {
         parent::__construct($titolo, $annoPubblicazione);
         $this->regista = $regista;
+        self::$contatoreMateriali++;
     }
 
-    public function presta()
+    public function contaDVD()
     {
-        parent::presta();
-        echo "Attualmente disponibile <br>";
-    }
-    public function restituisci()
-    {
-        parent::restituisci();
-        echo "Attualmente non disponibile <br>";
+        echo self::$contatoreMateriali;
     }
 }
